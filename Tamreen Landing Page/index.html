@@ -1,0 +1,1408 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-lang="ar">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#070712" />
+<title>تمرين، الشريك الرياضي. المنصّة الأولى للرياضيّين في الكويت والخليج</title>
+<meta name="description" content="تمرين، الشريك الرياضي. نظامٌ متكامل يُمكّن المدربين واخصائيين التغذيه واخصائيين العلاج الطبيعي في الكويت من بيع برامجهم، إدارة عملائهم، ومضاعفة دخلهم، دون زيادة ساعاتهم." />
+<link rel="icon" type="image/png" href="assets/symbol.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050510;
+  --bg-2:#0B0B1A;
+  --surface:#11112A;
+  --surface-2:#161634;
+  --border:#262644;
+  --border-2:#3A3A5C;
+  --text:#FFFFFF;
+  --text-2:#C8C8DC;
+  --text-3:#8888A8;
+  --text-4:#5A5A78;
+  --blue:#0A84FF;
+  --blue-2:#3FA1FF;
+  --gold:#FFB703;
+  --gold-2:#FFCB47;
+  --green:#22C55E;
+  --red:#EF4444;
+  --radius:18px;
+  --radius-sm:12px;
+  --radius-lg:28px;
+  --max:1200px;
+  --shadow:0 20px 60px rgba(0,0,0,.5);
+  --shadow-hard:0 30px 90px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Cairo',system-ui,-apple-system,sans-serif;
+  line-height:1.65;
+  overflow-x:hidden;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+html[data-lang="en"] body{font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.5;letter-spacing:-.01em}
+[data-lang="ar"] .en{display:none !important}
+[data-lang="en"] .ar{display:none !important}
+
+.bg-atmos{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-atmos::before,.bg-atmos::after{
+  content:"";position:absolute;width:900px;height:900px;border-radius:50%;
+  filter:blur(160px);opacity:.3;
+}
+.bg-atmos::before{background:radial-gradient(circle,#0A84FF 0%,transparent 60%);top:-320px;right:-200px;animation:float 22s ease-in-out infinite}
+.bg-atmos::after{background:radial-gradient(circle,#FFB703 0%,transparent 60%);bottom:-320px;left:-200px;opacity:.15;animation:float 28s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(60px,40px)}}
+
+.container{max-width:var(--max);margin:0 auto;padding:0 24px;position:relative;z-index:2}
+section{padding:110px 0;position:relative;z-index:2}
+section.tight{padding:70px 0}
+section.wide{padding:140px 0}
+
+h1,h2,h3,h4{font-weight:800;letter-spacing:-.015em;line-height:1.15}
+h1{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:900;line-height:1.08}
+h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:900}
+h3{font-size:clamp(1.25rem,2vw,1.55rem)}
+h4{font-size:clamp(1.05rem,1.5vw,1.2rem)}
+p{color:var(--text-2);font-size:clamp(1rem,1.15vw,1.1rem)}
+.muted{color:var(--text-3)}
+.xl{font-size:clamp(1.1rem,1.5vw,1.3rem)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--border-2);border-radius:999px;font-size:.78rem;color:var(--text-2);background:rgba(255,255,255,.02);backdrop-filter:blur(10px);margin-bottom:24px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+.gold-text{color:var(--gold)}
+.blue-text{color:var(--blue-2)}
+.red-text{color:#FCA5A5}
+
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  backdrop-filter:blur(24px) saturate(180%);
+  background:rgba(5,5,16,.75);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  transition:all .3s ease;
+}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+.nav-logo img{height:32px;width:auto;display:block}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--text-2);text-decoration:none;font-size:.92rem;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+
+.lang-toggle{display:flex;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:999px;padding:3px;gap:2px}
+.lang-toggle button{
+  background:transparent;border:0;color:var(--text-3);font-family:inherit;
+  padding:6px 14px;border-radius:999px;cursor:pointer;font-size:.82rem;font-weight:700;
+  transition:all .2s;min-width:38px;
+}
+.lang-toggle button.active{background:var(--text);color:#000}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 28px;border-radius:999px;font-weight:700;font-size:.98rem;
+  text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease,border-color .2s;
+  white-space:nowrap;line-height:1;
+}
+.btn svg{width:16px;height:16px;flex-shrink:0}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 12px 36px rgba(10,132,255,.4)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 46px rgba(10,132,255,.55)}
+.btn-gold{background:var(--gold);color:#1a1400;box-shadow:0 12px 36px rgba(255,183,3,.35)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 18px 46px rgba(255,183,3,.5)}
+.btn-white{background:#fff;color:#000}
+.btn-white:hover{transform:translateY(-2px);background:#f0f0f0}
+.btn-ghost{background:rgba(255,255,255,.05);color:var(--text);border-color:var(--border-2)}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2)}
+.btn-outline{background:transparent;color:var(--text);border-color:var(--text)}
+.btn-outline:hover{background:var(--text);color:#000}
+.btn-sm{padding:10px 18px;font-size:.85rem}
+.btn-lg{padding:18px 34px;font-size:1.05rem}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;padding:140px 0 90px;position:relative;overflow:hidden;
+  display:flex;align-items:center;
+}
+.hero-video{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-video video{width:100%;height:100%;object-fit:cover;opacity:.3;filter:saturate(120%) contrast(110%)}
+.hero-video::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,16,.5) 0%,rgba(5,5,16,.85) 65%,var(--bg) 100%)}
+.hero-inner{position:relative;z-index:2;width:100%}
+.hero h1 .strike{position:relative;white-space:nowrap;color:var(--text-3)}
+.hero h1 .strike::after{
+  content:"";position:absolute;top:55%;left:-4px;right:-4px;height:4px;
+  background:var(--red);transform:rotate(-2deg);border-radius:2px;opacity:.95;
+}
+.hero h1 .pow{background:linear-gradient(120deg,#fff,var(--gold-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:clamp(1.1rem,1.35vw,1.3rem);color:var(--text-2);margin-top:24px;max-width:680px;line-height:1.55}
+.hero-ctas{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:32px;margin-top:50px;flex-wrap:wrap;color:var(--text-3);font-size:.88rem;font-weight:600;letter-spacing:.02em}
+.hero-meta span{display:inline-flex;align-items:center;gap:8px}
+.hero-meta .dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+
+/* ---------- MARQUEE ---------- */
+.marquee{
+  background:linear-gradient(90deg,rgba(10,132,255,.08),rgba(255,183,3,.08));
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  overflow:hidden;padding:20px 0;
+}
+.marquee-track{display:flex;gap:56px;animation:tick 32s linear infinite;white-space:nowrap}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+[dir="ltr"] .marquee-track{animation-direction:reverse}
+.marquee-item{display:inline-flex;align-items:center;gap:14px;color:var(--text-2);font-weight:700;font-size:1.05rem}
+.marquee-item svg{width:20px;height:20px;color:var(--blue-2)}
+.marquee-item .bullet{width:5px;height:5px;border-radius:50%;background:var(--border-2)}
+
+/* ---------- PAIN STATS ---------- */
+.pain-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:30px;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--surface)}
+.pain-stat{padding:36px 30px;border-right:1px solid var(--border);position:relative}
+[dir="rtl"] .pain-stat{border-right:0;border-left:1px solid var(--border)}
+.pain-stat:last-child{border:0 !important}
+.pain-stat .num{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:900;color:var(--gold);line-height:1;margin-bottom:12px;letter-spacing:-.02em}
+.pain-stat .lbl{color:var(--text-2);font-size:.98rem;font-weight:500}
+
+/* ---------- SECTION HEADERS ---------- */
+.sec-head{max-width:820px;margin:0 auto 60px;text-align:center}
+.sec-head p{margin-top:20px;font-size:1.1rem}
+.sec-head.left{margin-left:0;text-align:start}
+
+/* ---------- PROBLEM ---------- */
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+.problem-card{
+  background:linear-gradient(180deg,rgba(239,68,68,.06),rgba(255,255,255,.01));
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:34px 30px;transition:all .3s;
+}
+.problem-card:hover{transform:translateY(-4px);border-color:rgba(239,68,68,.3)}
+.problem-icon{
+  width:52px;height:52px;border-radius:14px;background:rgba(239,68,68,.12);color:#FCA5A5;
+  display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+}
+.problem-icon svg{width:26px;height:26px}
+.problem-card h3{margin-bottom:12px;color:#fff}
+.problem-card p{color:var(--text-2);font-size:.98rem}
+.problem-card .emph{color:#FCA5A5;font-weight:700}
+
+/* ---------- SYSTEM PILLARS ---------- */
+.system-intro{text-align:center;margin-bottom:60px}
+.system-intro .big{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-.02em;line-height:1.1}
+.system-intro .big span.acc{background:linear-gradient(120deg,var(--blue-2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.system-intro p.xl{max-width:700px;margin:22px auto 0;color:var(--text-2)}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.pillar{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:28px 24px;transition:all .3s;position:relative;overflow:hidden;
+}
+.pillar:hover{transform:translateY(-4px);border-color:var(--border-2);box-shadow:var(--shadow)}
+.pillar::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--blue)}
+.pillar-num{color:var(--text-4);font-size:.8rem;font-weight:800;letter-spacing:.12em;margin-bottom:14px}
+.pillar-icon{width:44px;height:44px;border-radius:12px;background:rgba(10,132,255,.12);color:var(--blue-2);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.pillar-icon svg{width:22px;height:22px}
+.pillar h4{margin-bottom:8px;color:#fff}
+.pillar p{font-size:.92rem;color:var(--text-3)}
+
+/* ---------- COACHES ---------- */
+.coaches-hero{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
+.coaches-benefits{list-style:none;margin-top:32px}
+.coaches-benefits li{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.coaches-benefits li:last-child{border-bottom:0}
+.coaches-benefits .bicon{width:44px;height:44px;border-radius:12px;background:rgba(10,132,255,.14);color:var(--blue-2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.coaches-benefits .bicon svg{width:22px;height:22px}
+.coaches-benefits h4{margin-bottom:4px;font-size:1.08rem}
+.coaches-benefits p{color:var(--text-3);font-size:.96rem}
+.coaches-visual{
+  position:relative;border-radius:var(--radius-lg);overflow:hidden;
+  background:linear-gradient(135deg,rgba(10,132,255,.18),rgba(255,183,3,.06));
+  border:1px solid var(--border-2);aspect-ratio:4/5;padding:30px;
+  display:flex;align-items:center;justify-content:center;
+}
+.coaches-visual img{max-width:100%;max-height:100%;object-fit:contain;border-radius:var(--radius);box-shadow:var(--shadow-hard)}
+
+/* ---------- PROVIDERS DEEP (3 EQUAL) ---------- */
+.providers-deep{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.prov-deep{
+  position:relative;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:36px 30px;overflow:hidden;transition:all .3s;
+  display:flex;flex-direction:column;
+}
+.prov-deep::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent,var(--blue))}
+.prov-deep:hover{transform:translateY(-6px);border-color:var(--border-2);box-shadow:var(--shadow)}
+.prov-deep.coach{--accent:var(--blue)}
+.prov-deep.nutri{--accent:var(--green)}
+.prov-deep.physio{--accent:var(--gold)}
+.prov-deep-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:22px}
+.prov-deep-icon{
+  width:56px;height:56px;border-radius:16px;flex-shrink:0;
+  background:color-mix(in srgb,var(--accent) 15%,transparent);
+  color:var(--accent);display:flex;align-items:center;justify-content:center;
+}
+.prov-deep-icon svg{width:28px;height:28px}
+.prov-deep h3{color:var(--accent);font-size:1.3rem;margin-bottom:4px;line-height:1.2}
+.prov-deep-sub{color:var(--text-3);font-size:.82rem;font-weight:600;line-height:1.4;display:block}
+.prov-deep-lead{color:var(--text);font-size:1.02rem;font-weight:700;margin-bottom:20px;line-height:1.4}
+.prov-deep-list{list-style:none;margin-bottom:26px;flex:1}
+.prov-deep-list li{padding:9px 0;color:var(--text-2);font-size:.93rem;display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.prov-deep-list li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);margin-top:10px;flex-shrink:0}
+.prov-deep-cta{align-self:flex-start;background:color-mix(in srgb,var(--accent) 18%,transparent) !important;color:var(--accent) !important;border:1px solid color-mix(in srgb,var(--accent) 30%,transparent) !important;box-shadow:none !important}
+.prov-deep-cta:hover{background:var(--accent) !important;color:#fff !important;transform:translateY(-2px)}
+.prov-deep.physio .prov-deep-cta:hover{color:#1a1400 !important}
+
+/* ---------- SHARED BENEFITS ---------- */
+.shared-benefits{margin-top:70px;padding-top:60px;border-top:1px solid var(--border)}
+.shared-benefits-head{text-align:center;margin-bottom:40px}
+.shared-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.shared-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 22px;transition:all .3s}
+.shared-item:hover{transform:translateY(-3px);border-color:var(--border-2)}
+.shared-item .sbi{width:44px;height:44px;border-radius:12px;background:rgba(10,132,255,.12);color:var(--blue-2);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.shared-item .sbi svg{width:22px;height:22px}
+.shared-item h4{margin-bottom:8px;font-size:1.02rem}
+.shared-item p{color:var(--text-3);font-size:.9rem}
+
+/* ---------- ATHLETES ---------- */
+.athletes-bg{background:linear-gradient(180deg,rgba(255,183,3,.04),transparent)}
+.athletes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.ath-card{
+  background:linear-gradient(180deg,rgba(255,183,3,.05),rgba(255,255,255,.02));
+  border:1px solid var(--border);border-radius:var(--radius);padding:30px 26px;transition:all .3s;
+}
+.ath-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 14px 40px rgba(255,183,3,.08)}
+.ath-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,183,3,.14);color:var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.ath-icon svg{width:24px;height:24px}
+.ath-card h4{margin-bottom:8px}
+.ath-card p{font-size:.94rem}
+
+/* ---------- FOUNDING COACHES ---------- */
+.founding{background:linear-gradient(180deg,transparent,rgba(10,132,255,.04))}
+.fc-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:40px}
+.fc-slot{
+  aspect-ratio:1;border-radius:18px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--surface),var(--surface-2));
+  border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s;
+}
+.fc-slot:hover{transform:translateY(-3px);border-color:var(--blue)}
+.fc-slot.taken{
+  background:linear-gradient(135deg,rgba(10,132,255,.25),rgba(10,132,255,.05));
+  border-color:var(--blue);
+}
+.fc-slot.taken::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at center,rgba(10,132,255,.3) 0%,transparent 70%);
+}
+.fc-slot .fc-num{
+  position:relative;font-weight:900;font-size:1.4rem;color:var(--text);
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+}
+.fc-slot .fc-num small{font-size:.65rem;font-weight:700;color:var(--text-3);letter-spacing:.12em;text-transform:uppercase}
+.fc-slot.open .fc-num{color:var(--text-4)}
+.fc-slot.open .fc-num small{color:var(--text-4)}
+.fc-progress{max-width:560px;margin:40px auto 0;text-align:center}
+.fc-bar{height:8px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);overflow:hidden;margin-top:20px}
+.fc-bar-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--blue-2));border-radius:999px;width:34%;box-shadow:0 0 20px var(--blue)}
+.fc-progress .fc-meta{margin-top:14px;color:var(--text-3);font-size:.9rem;font-weight:600}
+
+/* ---------- BUSINESS MODEL ---------- */
+.bm-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.bm-card{
+  background:linear-gradient(180deg,rgba(34,197,94,.05),rgba(255,255,255,.01));
+  border:1px solid var(--border);border-radius:var(--radius-lg);padding:50px;
+  position:relative;overflow:hidden;
+}
+.bm-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--green)}
+.bm-card .big-num{font-size:clamp(3rem,6vw,5rem);font-weight:900;color:var(--green);line-height:1;letter-spacing:-.04em;margin-bottom:12px}
+.bm-card .big-lbl{font-size:1.1rem;color:var(--text);font-weight:700;margin-bottom:18px}
+.bm-card p{color:var(--text-2)}
+.bm-list{list-style:none}
+.bm-list li{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.bm-list li:last-child{border-bottom:0}
+.bm-list .check{width:28px;height:28px;border-radius:50%;background:var(--green);color:#042;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.bm-list .check svg{width:16px;height:16px}
+.bm-list h4{font-size:1rem;margin-bottom:2px}
+.bm-list p{color:var(--text-3);font-size:.92rem;margin:0}
+
+/* ---------- FOUNDER OFFER ---------- */
+.offer-wrap{
+  background:radial-gradient(ellipse at top,rgba(10,132,255,.2),rgba(255,183,3,.08) 40%,var(--bg) 70%);
+  padding:120px 0;position:relative;
+}
+.offer-card{
+  background:linear-gradient(145deg,#13133A 0%,#0A0A20 100%);
+  border:1px solid rgba(255,183,3,.3);
+  border-radius:var(--radius-lg);padding:0;
+  max-width:1000px;margin:0 auto;overflow:hidden;
+  box-shadow:var(--shadow-hard),0 0 60px rgba(255,183,3,.1);
+  position:relative;
+}
+.offer-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--blue),var(--gold));
+}
+.offer-head{padding:50px 50px 30px;text-align:center;border-bottom:1px solid var(--border)}
+.offer-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 18px;border-radius:999px;
+  background:rgba(255,183,3,.15);border:1px solid rgba(255,183,3,.4);
+  color:var(--gold);font-size:.8rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.offer-head h2{font-size:clamp(2rem,3.8vw,3rem);margin-bottom:14px}
+.offer-head h2 span.acc{color:var(--gold)}
+.offer-head p{max-width:620px;margin:0 auto;font-size:1.05rem}
+.offer-body{padding:40px 50px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.offer-perks{list-style:none}
+.offer-perks li{display:flex;gap:14px;padding:14px 0;align-items:flex-start}
+.offer-perks .icon{width:32px;height:32px;border-radius:10px;background:rgba(255,183,3,.14);color:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.offer-perks .icon svg{width:18px;height:18px}
+.offer-perks strong{display:block;color:#fff;font-size:1rem;font-weight:700;margin-bottom:2px}
+.offer-perks span.sub{color:var(--text-3);font-size:.9rem}
+.offer-cta{
+  background:var(--surface-2);border:1px solid var(--border-2);border-radius:var(--radius);
+  padding:30px;display:flex;flex-direction:column;gap:14px;
+}
+.offer-cta .seats{font-size:.85rem;color:var(--text-3);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.offer-cta .price{font-size:clamp(2.2rem,4vw,3rem);font-weight:900;line-height:1;letter-spacing:-.02em}
+.offer-cta .price .sub{font-size:.95rem;color:var(--text-3);font-weight:600;display:block;margin-top:8px;letter-spacing:0}
+.offer-cta .strike{color:var(--text-3);text-decoration:line-through;font-size:1rem;font-weight:600}
+.offer-foot{padding:20px 50px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;color:var(--text-3);font-size:.85rem;font-weight:600;border-top:1px solid var(--border)}
+
+/* ---------- APP PREVIEW ---------- */
+.app-preview{
+  background:linear-gradient(180deg,transparent,rgba(10,132,255,.04),transparent);
+  padding:110px 0;
+}
+.app-frames{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:30px;align-items:center;margin-top:50px}
+.phone-frame{
+  background:#000;border:8px solid #1a1a2e;border-radius:38px;
+  box-shadow:var(--shadow-hard);overflow:hidden;
+  aspect-ratio:9/19.5;position:relative;
+}
+.phone-frame.main{transform:scale(1.08);z-index:2}
+.phone-frame.side{opacity:.8;filter:saturate(90%)}
+.phone-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.phone-placeholder{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,#0A84FF 0%,#0B0B1A 100%);
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  font-weight:800;padding:30px;text-align:center;font-size:1.1rem;
+}
+
+/* ---------- TRUST STRIP ---------- */
+.trust-strip{padding:30px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(255,255,255,.01)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;align-items:center}
+.trust-item{display:flex;align-items:center;gap:14px;color:var(--text-2);font-size:.92rem;font-weight:600}
+.trust-item svg{width:22px;height:22px;color:var(--blue-2);flex-shrink:0}
+.trust-item .emph{color:var(--text);font-weight:700}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:820px;margin:40px auto 0}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:12px;overflow:hidden;transition:border-color .2s}
+.faq-item:hover{border-color:var(--border-2)}
+.faq-item.open{border-color:var(--blue)}
+.faq-q{padding:22px 28px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:700;font-size:1.02rem;gap:16px}
+.faq-q::after{content:"+";font-size:1.8rem;color:var(--blue-2);font-weight:200;transition:transform .3s;line-height:1}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s ease;padding:0 28px;color:var(--text-2)}
+.faq-item.open .faq-a{max-height:400px;padding:0 28px 26px}
+
+/* ---------- FINAL CTA ---------- */
+.final-cta{
+  background:radial-gradient(ellipse at center,rgba(10,132,255,.2) 0%,transparent 60%),var(--bg);
+  padding:130px 0;text-align:center;position:relative;overflow:hidden;
+}
+.final-cta::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(255,183,3,.04),transparent);pointer-events:none}
+.final-cta h2{font-size:clamp(2.5rem,5vw,4rem);margin-bottom:20px;max-width:900px;margin-inline:auto}
+.final-cta h2 .acc{background:linear-gradient(120deg,var(--blue-2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.final-cta p{max-width:640px;margin:0 auto 40px;font-size:1.1rem;color:var(--text-2)}
+.final-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.final-meta{margin-top:30px;color:var(--text-3);font-size:.88rem;font-weight:600;letter-spacing:.02em}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--border);padding:70px 0 30px;background:var(--bg-2)}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.foot-brand img{height:40px;margin-bottom:18px}
+.foot-brand p{font-size:.92rem;color:var(--text-3);max-width:340px}
+.foot-col h5{font-size:.75rem;text-transform:uppercase;letter-spacing:.14em;color:var(--text-4);margin-bottom:18px;font-weight:800}
+.foot-col a{display:block;color:var(--text-2);text-decoration:none;font-size:.94rem;padding:6px 0;transition:color .2s}
+.foot-col a:hover{color:var(--text)}
+.foot-bot{padding-top:28px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--text-4);font-size:.85rem}
+
+/* ---------- BADGE SHOWCASE ---------- */
+.badge-showcase{
+  display:grid;grid-template-columns:1fr 1.3fr;gap:50px;align-items:center;
+  margin-top:50px;max-width:1000px;margin-inline:auto;
+  background:linear-gradient(145deg,rgba(10,132,255,.08),rgba(255,183,3,.04));
+  border:1px solid var(--border-2);border-radius:var(--radius-lg);
+  padding:50px;position:relative;overflow:hidden;
+}
+.badge-showcase::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 20% 50%,rgba(255,183,3,.15),transparent 50%);
+  pointer-events:none;
+}
+.badge-medal{
+  position:relative;width:220px;height:220px;margin:0 auto;
+  display:flex;align-items:center;justify-content:center;
+}
+.badge-ring{
+  position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--gold),var(--blue-2),var(--gold),var(--gold-2),var(--gold));
+  animation:spin 18s linear infinite;
+  filter:blur(1px);
+}
+.badge-medal::before{
+  content:"";position:absolute;inset:6px;border-radius:50%;background:#0A0A20;
+}
+.badge-core{
+  position:relative;z-index:2;width:calc(100% - 24px);height:calc(100% - 24px);
+  border-radius:50%;background:radial-gradient(circle,#161634 0%,#0A0A20 100%);
+  border:2px solid rgba(255,183,3,.35);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  box-shadow:inset 0 0 40px rgba(255,183,3,.2),0 0 40px rgba(10,132,255,.15);
+}
+.badge-core svg{width:70px;height:70px;color:var(--gold);filter:drop-shadow(0 0 12px rgba(255,183,3,.6))}
+.badge-label{font-weight:900;font-size:1.15rem;letter-spacing:.14em;color:var(--text)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.badge-copy h3{font-size:clamp(1.4rem,2.4vw,1.9rem);margin-bottom:14px;line-height:1.25}
+.badge-copy p{color:var(--text-2);font-size:1rem;margin-bottom:22px}
+.badge-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-top:22px;border-top:1px solid var(--border)}
+.badge-stat{text-align:center}
+.badge-stat b{display:block;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:var(--gold);line-height:1;letter-spacing:-.02em;margin-bottom:6px}
+.badge-stat span{color:var(--text-3);font-size:.82rem;font-weight:600}
+@media (max-width:820px){
+  .badge-showcase{grid-template-columns:1fr;gap:30px;padding:36px 26px;text-align:center}
+  .badge-copy h3{text-align:center}
+  .badge-medal{width:180px;height:180px}
+}
+
+/* ---------- SCALING SHIFT ---------- */
+.scaling-wrap{background:linear-gradient(180deg,rgba(10,132,255,.06),transparent);padding:120px 0;position:relative;overflow:hidden}
+.scaling-wrap::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,183,3,.08),transparent 60%);pointer-events:none}
+.scaling-inner{max-width:1000px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.scaling-inner .eyebrow{margin-inline:auto}
+.scaling-inner h2{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.1;margin-bottom:22px}
+.scaling-inner h2 .acc{background:linear-gradient(120deg,var(--gold),var(--blue-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.scaling-math{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;margin:50px auto 0;max-width:820px}
+.math-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 26px;text-align:center}
+.math-box.old{border-color:rgba(239,68,68,.3)}
+.math-box.new{border-color:rgba(34,197,94,.35);background:linear-gradient(180deg,rgba(34,197,94,.06),var(--surface))}
+.math-box .t{font-size:.78rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px}
+.math-box.old .t{color:#FCA5A5}
+.math-box.new .t{color:var(--green)}
+.math-box .big{font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:10px}
+.math-box.old .big{color:#FCA5A5}
+.math-box.new .big{color:var(--green)}
+.math-box p{font-size:.95rem;color:var(--text-2);margin:0}
+.math-arrow{width:56px;height:56px;border-radius:50%;background:var(--surface-2);border:1px solid var(--border-2);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0}
+.math-arrow svg{width:28px;height:28px}
+[dir="rtl"] .math-arrow svg{transform:rotate(180deg)}
+.scaling-line{margin-top:40px;font-size:clamp(1.1rem,1.5vw,1.35rem);font-weight:700;color:var(--text)}
+.scaling-line .acc{color:var(--gold)}
+
+/* ---------- HOW IT WORKS ---------- */
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:50px;counter-reset:step}
+.how-step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px 26px;position:relative;transition:all .3s}
+.how-step:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:var(--shadow)}
+.how-step-num{font-size:2.2rem;font-weight:900;line-height:1;color:var(--blue);letter-spacing:-.03em;margin-bottom:16px}
+.how-step h4{margin-bottom:8px}
+.how-step p{font-size:.94rem;color:var(--text-3)}
+.how-cta{text-align:center;margin-top:50px}
+.how-cta .micro{margin-top:12px;color:var(--text-3);font-size:.86rem;font-weight:600}
+
+/* ---------- FOMO ---------- */
+.fomo-wrap{background:linear-gradient(180deg,transparent,rgba(255,183,3,.06),transparent);padding:100px 0;text-align:center;position:relative;overflow:hidden}
+.fomo-wrap::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(239,68,68,.08),transparent 60%);pointer-events:none}
+.fomo-card{max-width:820px;margin:0 auto;position:relative;z-index:2}
+.fomo-card h2{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.1;margin-bottom:22px}
+.fomo-card h2 .acc{color:var(--gold)}
+.fomo-kw{display:inline-block;margin-top:14px;padding:10px 22px;background:rgba(255,183,3,.12);border:1px solid rgba(255,183,3,.35);color:var(--gold);border-radius:999px;font-weight:800;letter-spacing:.04em}
+.fomo-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;text-align:start}
+.fomo-item{background:var(--surface);border:1px solid rgba(239,68,68,.18);border-radius:var(--radius);padding:24px 22px}
+.fomo-item .t{color:#FCA5A5;font-weight:800;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.fomo-item h4{margin-bottom:6px;font-size:1.02rem}
+.fomo-item p{color:var(--text-3);font-size:.92rem}
+
+/* ---------- STICKY MOBILE CTA ---------- */
+.sticky-cta{
+  display:none;position:fixed;bottom:14px;left:14px;right:14px;z-index:90;
+  background:linear-gradient(145deg,rgba(10,132,255,.98),rgba(10,132,255,.88));
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.15);border-radius:16px;
+  padding:12px 16px;box-shadow:0 20px 50px rgba(10,132,255,.4);
+  align-items:center;gap:12px;justify-content:space-between;
+}
+.sticky-cta .label{color:#fff;font-weight:800;font-size:.92rem;line-height:1.2}
+.sticky-cta .label small{display:block;font-size:.72rem;color:rgba(255,255,255,.75);font-weight:600;margin-top:2px}
+.sticky-cta a{background:#fff;color:#0A84FF;padding:10px 16px;border-radius:10px;font-weight:800;font-size:.88rem;text-decoration:none;white-space:nowrap;display:inline-flex;gap:6px;align-items:center}
+@media (max-width:760px){
+  .sticky-cta{display:flex}
+  body{padding-bottom:90px}
+  .how-steps{grid-template-columns:1fr 1fr}
+  .fomo-list{grid-template-columns:1fr}
+  .scaling-math{grid-template-columns:1fr;gap:14px}
+  [dir="rtl"] .math-arrow svg,.math-arrow svg{transform:rotate(90deg)}
+}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1000px){
+  .bm-wrap{grid-template-columns:1fr;gap:40px}
+  .pillars,.problem-grid,.athletes-grid,.shared-grid{grid-template-columns:1fr 1fr}
+  .providers-deep{grid-template-columns:1fr;gap:20px}
+  .fc-grid{grid-template-columns:repeat(4,1fr)}
+  .offer-body{grid-template-columns:1fr;gap:30px}
+  .app-frames{grid-template-columns:1fr}
+  .phone-frame.side{display:none}
+  .phone-frame.main{transform:none;max-width:320px;margin:0 auto}
+  .trust-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .nav-links{display:none}
+  .pain-stats{grid-template-columns:1fr}
+  .pain-stat{border-right:0 !important;border-bottom:1px solid var(--border);border-left:0 !important}
+  .pain-stat:last-child{border-bottom:0}
+  .pillars,.problem-grid,.athletes-grid,.fc-grid,.shared-grid{grid-template-columns:1fr 1fr}
+  .providers-deep{grid-template-columns:1fr}
+  section,.app-preview,.offer-wrap,.final-cta{padding:70px 0}
+  .hero{padding:120px 0 60px}
+  .offer-head,.offer-body,.offer-foot{padding-left:24px;padding-right:24px}
+  .offer-card{margin:0 16px}
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="bg-atmos"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><img src="assets/logo.png" alt="Tamreen" /></a>
+    <div class="nav-links">
+      <a href="#system"><span class="ar">النظام</span><span class="en">System</span></a>
+      <a href="#scaling"><span class="ar">التوسّع</span><span class="en">Scale</span></a>
+      <a href="#providers"><span class="ar">للمحترفين</span><span class="en">Providers</span></a>
+      <a href="#how"><span class="ar">كيف يعمل</span><span class="en">How</span></a>
+      <a href="#offer"><span class="ar">المؤسّسون</span><span class="en">Founders</span></a>
+      <a href="#faq"><span class="ar">الأسئلة</span><span class="en">FAQ</span></a>
+    </div>
+    <div class="nav-actions">
+      <div class="lang-toggle">
+        <button data-lang-btn="ar" class="active">ع</button>
+        <button data-lang-btn="en">EN</button>
+      </div>
+      <a href="https://register.mytamreen.com" class="btn btn-primary btn-sm">
+        <span class="ar">سجّل كمؤسّس</span><span class="en">Register as Founder</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-video">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="assets/hero-video.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="container hero-inner">
+    <span class="eyebrow">
+      <span class="dot"></span>
+      <span class="ar">🇰🇼 المنصّة الأولى للرياضيّين في الكويت والخليج</span>
+      <span class="en">🇰🇼 The #1 Athletes' Platform in Kuwait & the Gulf</span>
+    </span>
+    <h1>
+      <span class="ar">سَوِّ برنامجك <span class="pow">مرّة</span>.<br/>وبيعه <span class="pow">ألف مرّة</span>.</span>
+      <span class="en">Build Your Program <span class="pow">Once</span>.<br/>Sell It <span class="pow">A Thousand Times</span>.</span>
+    </h1>
+    <p class="lead">
+      <span class="ar">تمرين، الشريك الرياضي. نظامٌ متكامل يُمكّن المدربين، واخصائيين التغذيه، واخصائيين العلاج الطبيعي من بيع برامجهم، إدارة عملائهم، ومضاعفة دخلهم، دون زيادة ساعاتهم. هذا <b style="color:var(--text)">نظام</b>. مو تطبيق.</span>
+      <span class="en">Tamreen, Your Fitness Partner. A complete system that lets coaches, nutritionists, and physiotherapists sell programs, manage clients, and scale their income, without scaling their hours. This is a <b style="color:var(--text)">system</b>. Not an app.</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="https://register.mytamreen.com" class="btn btn-primary btn-lg">
+        <span class="ar">سجّل كمحترف مؤسّس</span><span class="en">Register as a Founding Pro</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://athlete.mytamreen.com" class="btn btn-white btn-lg">
+        <span class="ar">أنا رياضيّ، ابدأ الآن</span><span class="en">I'm an Athlete, Start Now</span>
+      </a>
+      <a href="https://management.mytamreen.com" class="btn btn-ghost btn-lg" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span class="ar">احجز موعداً مع الإدارة</span><span class="en">Book a Meeting with Management</span>
+      </a>
+    </div>
+    <div style="margin-top:14px;color:var(--text-3);font-size:.88rem;font-weight:600">
+      <span class="ar">التسجيل مجّانيّ · بدون مخاطرة · لن تدفع حتى يصير عندك مشتركين</span>
+      <span class="en">Free to register · Zero risk · You don't pay until you have subscribers</span>
+    </div>
+    <div class="hero-meta">
+      <span><span class="dot"></span><span class="ar">مقاعد محدوده لشارة المؤسّسين (Founder Badge)</span><span class="en">Limited Founder Badge seats</span></span>
+      <span><span class="dot"></span><span class="ar">3 تخصّصات مهنيّة</span><span class="en">3 professional categories</span></span>
+      <span><span class="dot"></span><span class="ar">إطلاق 2026</span><span class="en">Launching 2026</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="ar">برامج مدفوعة</span><span class="en">Paid Programs</span></span>
+    <span class="bullet"></span>
+    <span class="marquee-item"><span class="ar">إدارة عملاء</span><span class="en">Client Management</span></span>
+    <span class="bullet"></span>
+    <span class="marquee-item"><span class="ar">مدفوعات آمنة</span><span class="en">Secure Payments</span></span>
+    <span class="bullet"></span>
+    <span class="marquee-item"><span class="ar">هويّة رقميّة</span><span class="en">Digital Identity</span></span>
+    <span class="bullet"></span>
+    <span class="marquee-item"><span class="ar">متابعة نتائج</span><span class="en">Results Tracking</span></span>
+    <span class="bullet"></span>
+    <span class="marquee-item"><span class="ar">دخل قابل للتوسّع</span><span class="en">Scalable Income</span></span>
+    <span class="bullet"></span>
+
+    <span class="marquee-item"><span class="ar">برامج مدفوعة</span><span class="en">Paid Programs</span></span>
+    <span class="bullet"></span>
+    <span class="marquee-item"><span class="ar">إدارة عملاء</span><span class="en">Client Management</span></span>
+    <span class="bullet"></span>
+    <span class="marquee-item"><span class="ar">مدفوعات آمنة</span><span class="en">Secure Payments</span></span>
+    <span class="bullet"></span>
+    <span class="marquee-item"><span class="ar">هويّة رقميّة</span><span class="en">Digital Identity</span></span>
+    <span class="bullet"></span>
+    <span class="marquee-item"><span class="ar">متابعة نتائج</span><span class="en">Results Tracking</span></span>
+    <span class="bullet"></span>
+    <span class="marquee-item"><span class="ar">دخل قابل للتوسّع</span><span class="en">Scalable Income</span></span>
+    <span class="bullet"></span>
+  </div>
+</div>
+
+<!-- ============ PROBLEM ============ -->
+<section id="problem">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="ar">المشكلة</span><span class="en">The Problem</span></span>
+      <h2><span class="ar">سواءً كنت مدرباً محترفاً، أو اخصائي تغذيه، أو اخصائي علاج طبيعي… المعضله الكبرى واحده: كيف أوسّع أعمالي وأصل لأكبر عدد من المستفيدين؟</span><span class="en">Whether you're a professional coach, a nutritionist, or a physiotherapist… the real question is the same: how do I scale up and reach more of the people who need me?</span></h2>
+      <p><span class="ar">الخبرة عندك. النتائج تشهد لك. لكن وقتك يضيع في الرسائل، التحويلات، والمتابعات اليدويّة. تخيّل أن عندك آلاف المتابعين، وما تقدر توصل للجميع. أكبر معضلة نبي نحلّها هي الانتشار. Scaling up.</span><span class="en">You have the expertise. Your results speak for you. But your time is bleeding out in messages, transfers, and manual follow-ups. Imagine thousands of followers and you can't reach them all. The one problem we're here to solve is reach. Scaling up.</span></p>
+    </div>
+
+    <div class="pain-stats reveal">
+      <div class="pain-stat">
+        <div class="num">+14</div>
+        <div class="lbl"><span class="ar">محادثة مفتوحة في الوقت نفسه لإدارة عملائك.</span><span class="en">Open chats you juggle simultaneously to manage clients.</span></div>
+      </div>
+      <div class="pain-stat">
+        <div class="num">20h</div>
+        <div class="lbl"><span class="ar">أسبوعيّاً تضيع في التنسيق والمتابعة، بدل التدريب.</span><span class="en">A week lost to coordination and follow-up — instead of coaching.</span></div>
+      </div>
+      <div class="pain-stat">
+        <div class="num">×1</div>
+        <div class="lbl"><span class="ar">دخلك مرتبط بعدد ساعاتك. ساعتك سقفك.</span><span class="en">Your income is capped by your hours. Your hour is your ceiling.</span></div>
+      </div>
+    </div>
+
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3><span class="ar">فوضى الرسائل</span><span class="en">Message Chaos</span></h3>
+        <p><span class="ar">برامج تُرسل صوَر، تمارين بصوتيّات، ومدفوعات بتحويلات يدويّة. <span class="emph">لا سجلّ، ولا نظام، ولا احتراف.</span></span><span class="en">Programs sent as photos, exercises as voice notes, payments as manual transfers. <span class="emph">No record, no system, no professionalism.</span></span></p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3><span class="ar">سقفٌ زمنيّ</span><span class="en">Time Ceiling</span></h3>
+        <p><span class="ar">تتقاضى مقابل ساعاتك فقط. حتى لو زدت أسعارك، <span class="emph">الأيّام 24 ساعة.</span> لا توسّع حقيقيّ بهذه المعادلة.</span><span class="en">You charge for hours only. Even if you raise your rates, <span class="emph">days have 24 hours.</span> There's no real scale in that math.</span></p>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg></div>
+        <h3><span class="ar">إنستغرام ليس عملاً</span><span class="en">Instagram Isn't a Business</span></h3>
+        <p><span class="ar">الخوارزميّة تُقرّر مَن يراك، لا أنت. <span class="emph">تبني جمهوراً لا تملكه</span> على منصّة ليست مصمَّمة للبيع الاحترافيّ.</span><span class="en">The algorithm decides who sees you, not you. <span class="emph">You build an audience you don't own</span> on a platform that wasn't built for professional sales.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SYSTEM ============ -->
+<section id="system">
+  <div class="container">
+    <div class="system-intro reveal">
+      <span class="eyebrow"><span class="ar">الحلّ</span><span class="en">The Solution</span></span>
+      <div class="big"><span class="ar">هذا <span class="acc">نظام</span>. ليس تطبيقاً.</span><span class="en">This is a <span class="acc">system</span>. Not an app.</span></div>
+      <p class="xl"><span class="ar">تمرين ليس قناة تسويق، وليس دليلاً. هو البنية التحتيّة التي يُدير فيها المحترف أعماله كاملةً، من أوّل عميل حتى آلاف العملاء.</span><span class="en">Tamreen isn't a marketing channel, and it isn't a directory. It's the infrastructure where a professional runs their entire business, from the first client to thousands.</span></p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="pillar-num">01</div>
+        <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></div>
+        <h4><span class="ar">البرامج</span><span class="en">Programs</span></h4>
+        <p><span class="ar">ابنِ برامج منظَّمة بالفيديو، النصّ، والتمارين. قابلة للبيع مرّات لا حصر لها.</span><span class="en">Build structured programs with video, text, and exercises — sellable infinitely.</span></p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">02</div>
+        <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75M22 21v-2a4 4 0 0 0-3-3.85"/></svg></div>
+        <h4><span class="ar">العملاء</span><span class="en">Clients</span></h4>
+        <p><span class="ar">لوحة واحدة تُظهر تقدّم كل عميل، ورسائله، ومدفوعاته.</span><span class="en">One dashboard shows every client's progress, messages, and payments.</span></p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">03</div>
+        <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg></div>
+        <h4><span class="ar">المدفوعات</span><span class="en">Payments</span></h4>
+        <p><span class="ar">دفع تلقائيّ داخل المنصّة، بدون تحويلات، بدون تذكيرات، بدون إحراج، وتقدر تستقبل الدفع من جميع دول العالم.</span><span class="en">Automated in-app payments. No transfers, no reminders, no awkwardness. And you can accept payments from every country in the world.</span></p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">04</div>
+        <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
+        <h4><span class="ar">هويّة رقميّة</span><span class="en">Digital Identity</span></h4>
+        <p><span class="ar">صفحتك الاحترافيّة الخاصّة، في منصّة يثق بها السوق الكويتيّ.</span><span class="en">Your own professional page, on a platform the Kuwaiti market trusts.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCALING SHIFT MOMENT ============ -->
+<section id="scaling" class="scaling-wrap">
+  <div class="container">
+    <div class="scaling-inner reveal">
+      <span class="eyebrow"><span class="ar">لحظة التحوّل</span><span class="en">The Shift</span></span>
+      <h2>
+        <span class="ar">من <span style="color:#FCA5A5">فوضى</span>، إلى <span class="acc">نظام</span>.<br/>من ساعاتك، إلى <span class="acc">توسّعك</span>.</span>
+        <span class="en">From <span style="color:#FCA5A5">Chaos</span> to a <span class="acc">System</span>.<br/>From Your Hours to <span class="acc">Your Scale</span>.</span>
+      </h2>
+      <p class="xl" style="max-width:720px;margin:0 auto;color:var(--text-2)">
+        <span class="ar">طول عمرك تبيع وقتك. وقتك محدود، ودخلك محدود مثله. النظام يكسر هذي المعادلة: برنامج واحد يوصل لألف عميل بضغطة زر.</span>
+        <span class="en">You've been selling time. Time is capped, and so is your income. A system breaks that equation: one program reaches a thousand clients with a click.</span>
+      </p>
+
+      <div class="scaling-math">
+        <div class="math-box old">
+          <div class="t"><span class="ar">قبل</span><span class="en">Before</span></div>
+          <div class="big">1 : 1</div>
+          <p><span class="ar">ساعة تدريب واحدة، لعميل واحد. تكرار يدويّ، دخل يتوقّف حين تتوقّف أنت.</span><span class="en">One hour, one client. Manual repetition, income that stops when you stop.</span></p>
+        </div>
+        <div class="math-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </div>
+        <div class="math-box new">
+          <div class="t"><span class="ar">بعد</span><span class="en">After</span></div>
+          <div class="big">1 : 1,000</div>
+          <p><span class="ar">برنامج واحد، يُباع لألف مشترك. تبنيه مرّة، تجنيه مدى الحياة.</span><span class="en">One program, sold to a thousand subscribers. Build it once, earn from it for life.</span></p>
+        </div>
+      </div>
+
+      <div class="scaling-line">
+        <span class="ar">سَوِّ برنامجك <span class="acc">مرّة</span>. وبيعه <span class="acc">ألف مرّة</span>. هذا هو الاستثمار الصح.</span>
+        <span class="en">Build your program <span class="acc">once</span>. Sell it <span class="acc">a thousand times</span>. This is the right investment.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOR PROVIDERS (3 EQUAL) ============ -->
+<section id="providers" class="wide">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="ar">للمحترفين</span><span class="en">For Providers</span></span>
+      <h2><span class="ar">ثلاثة تخصّصات. نظامٌ واحد. قيمةٌ واضحة لكلٍّ منها.</span><span class="en">Three Professions. One System. A Clear Edge for Each.</span></h2>
+      <p><span class="ar">سوِّ برنامجك مرّة. وبيعه ألف مرّة. دخلك لم يَعُد مرتبطاً بساعاتك. هذا هو الاستثمار الصح.</span><span class="en">Build your program once. Sell it a thousand times. Your income is no longer tied to your hours. That is the right investment.</span></p>
+      <p style="margin-top:14px;color:var(--text-3);font-size:1rem"><span class="ar">المدربين، اخصائيين التغذيه، واخصائيين العلاج الطبيعي. كلّ فئة تجد أدواتها الخاصّة داخل منصّةٍ واحدةٍ احترافيّة.</span><span class="en">Coaches, nutritionists, and physiotherapists. Each category finds its own purpose-built tools inside a single professional platform.</span></p>
+    </div>
+
+    <div class="providers-deep">
+      <!-- ===== COACHES ===== -->
+      <div class="prov-deep coach reveal">
+        <div class="prov-deep-head">
+          <div class="prov-deep-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4v16M18 4v16M4 8h4M4 16h4M16 8h4M16 16h4M8 12h8"/></svg>
+          </div>
+          <div>
+            <h3><span class="ar">المدربين</span><span class="en">Coaches</span></h3>
+            <span class="prov-deep-sub"><span class="ar">للمدربين المحترفين في اللياقة والقوّة والأداء</span><span class="en">For professional fitness, strength & performance coaches</span></span>
+          </div>
+        </div>
+        <p class="prov-deep-lead"><span class="ar">سوِّ برنامجك مرّة. وبيعه ألف مرّة. دخلك لم يُعد مرتبطاً بساعاتك.</span><span class="en">Build once. Sell repeatedly. Your income no longer tied to your hours.</span></p>
+        <ul class="prov-deep-list">
+          <li><span class="ar">برامج تدريبيّة مدفوعة قابلة للبيع لعميلٍ واحد أو لمئة</span><span class="en">Paid programs sellable to one client or a hundred</span></li>
+          <li><span class="ar">صفحة شخصيّة احترافيّة تُظهر النتائج، لا بوست إنستغرام</span><span class="en">A professional personal page that shows results, not an Instagram post</span></li>
+          <li><span class="ar">إدارة العملاء، الرسائل، والمدفوعات في لوحةٍ واحدة</span><span class="en">Clients, messages & payments on a single dashboard</span></li>
+          <li><span class="ar">هويّة رقميّة تملكها في منصّة يثق بها السوق الكويتيّ</span><span class="en">A digital identity you own, on a platform Kuwait trusts</span></li>
+        </ul>
+        <a href="https://register.mytamreen.com" class="btn btn-primary btn-sm prov-deep-cta"><span class="ar">انضم كمدرب مؤسّس</span><span class="en">Join as a Founding Coach</span></a>
+      </div>
+
+      <!-- ===== NUTRITIONISTS ===== -->
+      <div class="prov-deep nutri reveal">
+        <div class="prov-deep-head">
+          <div class="prov-deep-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zM9 9h6M12 6v6"/></svg>
+          </div>
+          <div>
+            <h3><span class="ar">اخصائيين التغذيه</span><span class="en">Nutritionists</span></h3>
+            <span class="prov-deep-sub"><span class="ar">لاخصائيين معتمدين في التغذيه العلاجيّة والرياضيّة</span><span class="en">For certified clinical & sports nutritionists</span></span>
+          </div>
+        </div>
+        <p class="prov-deep-lead"><span class="ar">خططٌ غذائيّة تُباع. اشتراكاتٌ تستمرّ. مرضى يصلونك بنيّةٍ واضحة.</span><span class="en">Plans that sell. Subscriptions that recur. Patients who find you with intent.</span></p>
+        <ul class="prov-deep-list">
+          <li><span class="ar">خطط غذائيّة منظّمة، قابلة للبيع والتحديث</span><span class="en">Structured nutrition plans — sellable & updatable</span></li>
+          <li><span class="ar">اشتراكاتٌ شهريّة بدل الدفعات المتفرّقة</span><span class="en">Monthly subscriptions instead of scattered payments</span></li>
+          <li><span class="ar">متابعةٌ مباشرة للعملاء بأدواتٍ مُصمَّمة لتخصّصك</span><span class="en">Direct follow-ups with tools built for your specialty</span></li>
+          <li><span class="ar">صفحة شخصيّة تعكس اعتمادك المهنيّ الحقيقيّ</span><span class="en">A personal page that reflects your real credentials</span></li>
+        </ul>
+        <a href="https://register.mytamreen.com" class="btn btn-primary btn-sm prov-deep-cta"><span class="ar">انضم كاخصائي تغذيه مؤسّس</span><span class="en">Join as a Founding Nutritionist</span></a>
+      </div>
+
+      <!-- ===== PHYSIOTHERAPISTS ===== -->
+      <div class="prov-deep physio reveal">
+        <div class="prov-deep-head">
+          <div class="prov-deep-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-3V4H7v3H4v13h16V7zM9 11h6M9 15h6"/></svg>
+          </div>
+          <div>
+            <h3><span class="ar">اخصائيين العلاج الطبيعي</span><span class="en">Physiotherapists</span></h3>
+            <span class="prov-deep-sub"><span class="ar">لاخصائيين العلاج الطبيعي والتأهيل الحركيّ</span><span class="en">For physiotherapists & movement rehab specialists</span></span>
+          </div>
+        </div>
+        <p class="prov-deep-lead"><span class="ar">خطط تأهيلٍ مُنظَّمة. حالاتٌ مدروسة تصلك. خبرتك السريريّة بواجهةٍ تُليق بها.</span><span class="en">Structured rehab plans. Well-matched cases. Clinical expertise with an interface that does it justice.</span></p>
+        <ul class="prov-deep-list">
+          <li><span class="ar">إدارة جلسات وخطط تأهيلٍ قابلة للمتابعة</span><span class="en">Session & rehab plan management with follow-up</span></li>
+          <li><span class="ar">محتوى توعويّ قابلٌ للبيع أو للنشر المجانيّ</span><span class="en">Educational content — sellable or publish-for-free</span></li>
+          <li><span class="ar">حالاتٌ تصلك من مستخدمين يبحثون عن التخصّص</span><span class="en">Cases from users actively seeking your specialty</span></li>
+          <li><span class="ar">صفحة سريريّة تعكس مستواك المهنيّ</span><span class="en">A clinical page that reflects your level</span></li>
+        </ul>
+        <a href="https://register.mytamreen.com" class="btn btn-primary btn-sm prov-deep-cta"><span class="ar">انضم كاخصائي علاج طبيعي مؤسّس</span><span class="en">Join as a Founding Physiotherapist</span></a>
+      </div>
+    </div>
+
+    <!-- Shared benefits — apply to all 3 -->
+    <div class="shared-benefits reveal">
+      <div class="shared-benefits-head">
+        <h3 style="font-size:clamp(1.3rem,2.2vw,1.7rem)"><span class="ar">ما تحصل عليه، بغضّ النظر عن تخصّصك</span><span class="en">What You Get — Regardless of Specialty</span></h3>
+      </div>
+      <div class="shared-grid">
+        <div class="shared-item">
+          <div class="sbi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 6-6"/></svg></div>
+          <h4><span class="ar">اربح أكثر، دون ساعاتٍ أكثر</span><span class="en">Earn more. Without more hours.</span></h4>
+          <p><span class="ar">البرنامج الواحد يُباع لألف عميل بكلّ سهوله وضغطة زر. الدخل يُضرب، والجهد والاستثمار ثابت.</span><span class="en">One program sells to a thousand clients with a single click. Income multiplies, while effort and investment stay fixed.</span></p>
+        </div>
+        <div class="shared-item">
+          <div class="sbi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z"/></svg></div>
+          <h4><span class="ar">هويّة مهنيّة تُشبهك</span><span class="en">A professional identity that matches you.</span></h4>
+          <p><span class="ar">ملفٌّ احترافيّ، ليس حساباً اجتماعيّاً. العميل يرى خبرتك، لا حياتك الشخصيّة.</span><span class="en">A professional profile, not a social account. Clients see your expertise, not your personal life.</span></p>
+        </div>
+        <div class="shared-item">
+          <div class="sbi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h4><span class="ar">تحكّمٌ كامل</span><span class="en">Full control.</span></h4>
+          <p><span class="ar">أنت تُحدّد أسعارك، برامجك، وسياساتك. تمرين تُعطيك البنية، لا القيود.</span><span class="en">You set your prices, programs, and policies. Tamreen gives you the structure, not the restrictions.</span></p>
+        </div>
+        <div class="shared-item">
+          <div class="sbi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></div>
+          <h4><span class="ar">توسّع بلا سقف</span><span class="en">Scale without a ceiling.</span></h4>
+          <p><span class="ar">الأنظمة تتوسّع. الساعات لا تتوسّع. تمرين يبني لك النظام.</span><span class="en">Systems scale. Hours don't. Tamreen builds the system for you.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOR ATHLETES ============ -->
+<section id="athletes" class="athletes-bg">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="ar">للرياضيّين</span><span class="en">For Athletes</span></span>
+      <h2><span class="ar">برنامجٌ حقيقيّ. لا مجموعةُ واتساب.</span><span class="en">A Real Program. Not a WhatsApp Group.</span></h2>
+      <p><span class="ar">تدريبٌ منظَّم، توضيحٌ بالفيديو، ومحترفٌ يتابعك. كلّه في تطبيقٍ واحد.</span><span class="en">Structured training, video guidance, and a professional who follows up with you — all in one app.</span></p>
+    </div>
+    <div class="athletes-grid">
+      <div class="ath-card reveal">
+        <div class="ath-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div>
+        <h4><span class="ar">تدريبٌ منظَّم</span><span class="en">Structured Training</span></h4>
+        <p><span class="ar">برنامجٌ واضح، أسبوعاً بأسبوع. تعرف ماذا تُنجز اليوم، وتراقب ما أنجزت أمس.</span><span class="en">A clear program, week by week. You know what to do today — and track what you did yesterday.</span></p>
+      </div>
+      <div class="ath-card reveal">
+        <div class="ath-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <h4><span class="ar">فيديو لكلّ تمرين</span><span class="en">Video for Every Exercise</span></h4>
+        <p><span class="ar">ترى الحركة قبل أن تُنفّذها. لا تخمين، ولا إصابات، ولا سؤال.</span><span class="en">See the movement before you perform it. No guessing, no injuries, no DMs.</span></p>
+      </div>
+      <div class="ath-card reveal">
+        <div class="ath-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h4><span class="ar">متابعةٌ مباشرة</span><span class="en">Direct Follow-Up</span></h4>
+        <p><span class="ar">المدرب يرى تقدّمك، يُعدّل برنامجك، ويردّ على أسئلتك، داخل النظام.</span><span class="en">Your coach sees your progress, adjusts your program, and answers your questions — inside the system.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOUNDING COACHES ============ -->
+<section id="founding" class="founding">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="ar">شارة المؤسّسين</span><span class="en">The Founder Badge</span></span>
+      <h2><span class="ar">مقاعد محدودة للحصول على <span style="color:var(--gold)">شارة المؤسّسين</span>.</span><span class="en">Limited Seats for the <span style="color:var(--gold)">Founder Badge</span>.</span></h2>
+      <p><span class="ar">المرحلة الأولى من تمرين تنطلق بعددٍ محدود من المؤسّسين، مختارين ليشكّلوا وجه المنصّة. ومثل ما نقول في الكويت: من سبق، لبق. إذا راح هذا العرض، ما راح يرجع أبداً.</span><span class="en">Tamreen's first phase launches with a limited group of founders, hand-picked to shape the platform's face. As we say in Kuwait: first come, first served. Once this offer is gone, it's gone for good.</span></p>
+    </div>
+
+    <div class="badge-showcase reveal">
+      <div class="badge-medal">
+        <div class="badge-ring"></div>
+        <div class="badge-core">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7 7 .5-5.5 5 2 7-6.5-4-6.5 4 2-7L2 9.5 9 9z"/></svg>
+          <div class="badge-label">
+            <span class="ar">مؤسّس</span>
+            <span class="en">Founder</span>
+          </div>
+        </div>
+      </div>
+      <div class="badge-copy">
+        <h3><span class="ar">شارة لا تُمنح إلّا للمؤسّسين.</span><span class="en">A Badge Given Only to Founders.</span></h3>
+        <p><span class="ar">تجاوز عدد المسجّلين الـ 70 مهنيّاً من ثلاث تخصّصات. المقاعد محدودة جدّاً، والاختيار على أساس أسبقيّة التسجيل والمؤهّلات.</span><span class="en">Over 70 professionals across three specialties have already applied. Seats are strictly limited, and selection is based on order of registration and credentials.</span></p>
+        <div class="badge-stats">
+          <div class="badge-stat"><b>70+</b><span><span class="ar">مسجَّلين</span><span class="en">Applied</span></span></div>
+          <div class="badge-stat"><b>3</b><span><span class="ar">تخصّصات</span><span class="en">Specialties</span></span></div>
+          <div class="badge-stat"><b>1</b><span><span class="ar">فرصة واحدة</span><span class="en">One Chance</span></span></div>
+        </div>
+        <a href="https://register.mytamreen.com" class="btn btn-gold btn-lg" style="margin-top:24px">
+          <span class="ar">احجز شارتك قبل الإغلاق</span><span class="en">Claim Your Badge Before It Closes</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="ar">كيف يعمل</span><span class="en">How It Works</span></span>
+      <h2><span class="ar">أربع خطوات. تبدأ اليوم. تربح الشهر القادم.</span><span class="en">Four Steps. Start Today. Earn Next Month.</span></h2>
+      <p><span class="ar">بدون تعقيد. بدون مخاطرة. بدون دفع حتى يصير عندك مشتركين.</span><span class="en">No complexity. No risk. No payment until you have subscribers.</span></p>
+    </div>
+
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="how-step-num">01</div>
+        <h4><span class="ar">سجّل مجّاناً</span><span class="en">Register Free</span></h4>
+        <p><span class="ar">دقيقة واحدة على register.mytamreen.com. بدون بطاقة. بدون التزام.</span><span class="en">One minute at register.mytamreen.com. No card. No commitment.</span></p>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-step-num">02</div>
+        <h4><span class="ar">ابنِ هويّتك الرقميّة</span><span class="en">Build Your Digital Identity</span></h4>
+        <p><span class="ar">صفحتك الاحترافيّة، اعتمادك، نتائجك، أسعارك. هويّة تملكها أنت.</span><span class="en">Your professional page, credentials, results, pricing. An identity you own.</span></p>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-step-num">03</div>
+        <h4><span class="ar">ارفع برنامجك</span><span class="en">Upload Your Program</span></h4>
+        <p><span class="ar">بالفيديو والنصّ والتمارين. مرّة وحدة. جاهز للبيع لعميل واحد أو ألف.</span><span class="en">Video, text, exercises. Once. Ready to sell to one client or a thousand.</span></p>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-step-num">04</div>
+        <h4><span class="ar">ابدأ تكسب</span><span class="en">Start Earning</span></h4>
+        <p><span class="ar">مدفوعات تلقائيّة من جميع دول العالم. أنت تدرّب، النظام يدير كل شيء.</span><span class="en">Automated payments from every country. You coach, the system runs everything.</span></p>
+      </div>
+    </div>
+
+    <div class="how-cta reveal">
+      <a href="https://register.mytamreen.com" class="btn btn-primary btn-lg">
+        <span class="ar">ابدأ الخطوة الأولى الآن</span><span class="en">Start Step One Now</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <div class="micro">
+        <span class="ar">التسجيل مجّانيّ · 60 ثانية · بدون بطاقة</span>
+        <span class="en">Free registration · 60 seconds · No card required</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUSINESS MODEL ============ -->
+<section id="model">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="ar">النموذج</span><span class="en">Model</span></span>
+      <h2><span class="ar">لا اشتراك. لا مخاطرة. لا رسوم مخفيّة.</span><span class="en">No Subscription. No Risk. No Hidden Fees.</span></h2>
+      <p><span class="ar">نموذجٌ عادل: لا تدفع شيئاً حتى تربح أنت. نسبةٌ صغيرة على كلّ معاملة، ولا شيء غير ذلك.</span><span class="en">A fair model: you pay nothing until you earn. A small commission per transaction — and nothing else.</span></p>
+    </div>
+    <div class="bm-wrap">
+      <div class="bm-card reveal">
+        <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(255,183,3,.15);border:1px solid rgba(255,183,3,.4);color:var(--gold);font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px">
+          <span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)"></span>
+          <span class="ar">لفترة محدودة</span><span class="en">Limited Time</span>
+        </div>
+        <div class="big-num">0 <span style="font-size:.5em">KD</span></div>
+        <div class="big-lbl"><span class="ar">لتبدأ. اليوم. الآن.</span><span class="en">To start. Today. Right now.</span></div>
+        <p><span class="ar">لا اشتراك شهريّ، لا رسوم تفعيل، لا التزام سنويّ. تُسجِّل، تبني ملفّك، وتنشر برامجك، بدون أن تُخرج دينار.</span><span class="en">No monthly fee. No activation. No annual commitment. Sign up, build your profile, publish your programs, without spending a dinar.</span></p>
+      </div>
+      <ul class="bm-list reveal">
+        <li>
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+          <div>
+            <h4><span class="ar">صفر مخاطر</span><span class="en">Zero Risk</span></h4>
+            <p><span class="ar">ما راح تدفع شي إلّا بعد ما يصير عندك عملاء. بكلّ بساطة.</span><span class="en">You won't pay a thing until you actually have clients. That simple.</span></p>
+          </div>
+        </li>
+        <li>
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+          <div>
+            <h4><span class="ar">مصالحنا مُتطابقة</span><span class="en">Our Interests Are Aligned</span></h4>
+            <p><span class="ar">نحن لا ننجح إلّا إذا نجحت أنت. هذا يعني دعماً حقيقيّاً لا شعارات.</span><span class="en">We don't win unless you win. That means real support — not slogans.</span></p>
+          </div>
+        </li>
+        <li>
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+          <div>
+            <h4><span class="ar">خروجٌ حرّ في أيّ وقت</span><span class="en">Free to Leave Anytime</span></h4>
+            <p><span class="ar">لا عقود مُلزِمة، لا رسوم إلغاء.</span><span class="en">No binding contracts. No cancellation fees.</span></p>
+          </div>
+        </li>
+        <li>
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+          <div>
+            <h4><span class="ar">مدفوعات محلّيّة آمنة</span><span class="en">Local Secure Payments</span></h4>
+            <p><span class="ar">بوّابات دفعٍ كويتيّة معتمَدة.</span><span class="en">Certified Kuwaiti payment gateways.</span></p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOUNDER OFFER ============ -->
+<section id="offer" class="offer-wrap">
+  <div class="container">
+    <div class="offer-card reveal">
+      <div class="offer-head">
+        <div class="offer-badge">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 2l3 7 7 .5-5.5 5 2 7-6.5-4-6.5 4 2-7L2 9.5 9 9z"/></svg>
+          <span class="ar">عرض المؤسّس</span><span class="en">Founder Offer</span>
+        </div>
+        <h2><span class="ar">احصل على <span class="acc">شارة المؤسّسين</span>، وشكِّل <span class="acc">تمرين</span> من أوّل يوم.</span><span class="en">Earn the <span class="acc">Founder Badge</span>. Shape <span class="acc">Tamreen</span> from day one.</span></h2>
+        <p><span class="ar">بدون مخاطرة. لا تدفع شيئاً حتى يصير عندك مشتركين فعلاً. تجربة مجّانيّة كاملة، وشارة "مؤسّس" تبقى معك مدى الحياة.</span><span class="en">Zero risk. You don't pay a thing until you actually have subscribers. A full free trial, and a "Founder" badge that stays with you for life.</span></p>
+      </div>
+
+      <div class="offer-body">
+        <ul class="offer-perks">
+          <li>
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div>
+            <div><strong><span class="ar">بدون مخاطرة</span><span class="en">Zero risk</span></strong><span class="sub"><span class="ar">لا تدفع شيئاً حتى يصير عندك مشتركين فعلاً داخل المنصّة.</span><span class="en">You don't pay a thing until you actually have active subscribers.</span></span></div>
+          </li>
+          <li>
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div>
+            <div><strong><span class="ar">تجربة مجّانيّة كاملة</span><span class="en">Full free trial</span></strong><span class="sub"><span class="ar">ابنِ ملفّك وبرامجك وجرّب النظام كامل، قبل أيّ التزام.</span><span class="en">Build your page, your programs, and try the full system before any commitment.</span></span></div>
+          </li>
+          <li>
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div>
+            <div><strong><span class="ar">أولويّة دائمة لورش العمل الخاصّة</span><span class="en">Priority for exclusive workshops</span></strong><span class="sub"><span class="ar">حضور مجّانيّ لورش عمل مغلقة تُقدّم معلومات ماليّة ونصائح أعمال. لاحقاً تُصبح برسوم للعامّة، وأنت معفيّ.</span><span class="en">Free access to closed workshops covering financial insights and business guidance. They become paid for everyone else later, but you stay exempt.</span></span></div>
+          </li>
+          <li>
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div>
+            <div><strong><span class="ar">ظهور أوّليّ في التطبيق</span><span class="en">Priority visibility at launch</span></strong><span class="sub"><span class="ar">مكانٌ مميّز في صفحة الاكتشاف من اليوم الأوّل.</span><span class="en">Featured placement on the discovery page from day one.</span></span></div>
+          </li>
+          <li>
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg></div>
+            <div><strong><span class="ar">شارة "مؤسّس" دائمة على صفحتك</span><span class="en">Permanent "Founder" badge</span></strong><span class="sub"><span class="ar">تبقى معك مهما كبرت المنصّة. وعرض المؤسّسين لن يعود أبداً.</span><span class="en">Stays with you as the platform grows. And the Founder offer never returns.</span></span></div>
+          </li>
+        </ul>
+
+        <div class="offer-cta">
+          <div class="seats">
+            <span class="ar">تكلفة الانضمام كمؤسّس</span><span class="en">Cost to join as a Founder</span>
+          </div>
+          <div class="price">
+            0 <span style="font-size:.5em;color:var(--text-3)">KD</span>
+            <span class="sub">
+              <span class="ar">بدون مخاطرة. بدون دفع حتى يصير عندك مشتركين. تجربة مجّانيّة كاملة.</span>
+              <span class="en">Zero risk. No payment until you have subscribers. A full free trial.</span>
+            </span>
+          </div>
+          <a href="https://register.mytamreen.com" class="btn btn-gold btn-lg" style="justify-content:center">
+            <span class="ar">احجز شارة المؤسّس</span><span class="en">Claim Your Founder Badge</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="https://management.mytamreen.com" class="btn btn-ghost" style="justify-content:center;font-size:.88rem;padding:12px 18px" target="_blank" rel="noopener">
+            <span class="ar">تبي تكلّم الإدارة أوّلاً؟ احجز اجتماعاً</span><span class="en">Want to talk first? Book a meeting</span>
+          </a>
+          <div style="color:var(--text-3);font-size:.82rem;text-align:center;font-weight:600">
+            <span class="ar">التسجيل يستغرق 60 ثانية، ولا يُلزمك بشيء.</span>
+            <span class="en">Takes 60 seconds. Zero commitment.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="offer-foot">
+        <span>
+          <span class="ar">📍 الإطلاق الرسميّ: الربع الأوّل 2026</span>
+          <span class="en">📍 Official launch: Q1 2026</span>
+        </span>
+        <span>
+          <span class="ar">🔒 بياناتك لا تُشارَك مع أيّ طرف</span>
+          <span class="en">🔒 Your data never leaves the team</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APP PREVIEW ============ -->
+<section class="app-preview">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="ar">التطبيق</span><span class="en">The App</span></span>
+      <h2><span class="ar">نظامٌ مصقولٌ بعناية. لا واجهةٌ فاخرة على فراغ.</span><span class="en">A System Polished with Care — Not a Pretty Shell on Nothing.</span></h2>
+    </div>
+    <div class="app-frames reveal">
+      <div class="phone-frame side"><div class="phone-placeholder"><span class="ar">لوحة المدرب</span><span class="en">Coach Dashboard</span></div></div>
+      <div class="phone-frame main"><img src="assets/app-home.png" alt="Tamreen Home" loading="lazy"/></div>
+      <div class="phone-frame side"><img src="assets/app-coaches.png" alt="Coaches" loading="lazy"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z"/></svg>
+        <span><span class="emph"><span class="ar">امتثال كويتيّ</span><span class="en">Kuwait Compliant</span></span><br/><span class="ar">مبنيّة وفق الأنظمة المحلّيّة</span><span class="en">Built to local regulations</span></span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span><span class="emph"><span class="ar">خصوصيّة محفوظة</span><span class="en">Privacy Protected</span></span><br/><span class="ar">بياناتك لك وحدك</span><span class="en">Your data stays yours</span></span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        <span><span class="emph"><span class="ar">عقود واضحة</span><span class="en">Clear Contracts</span></span><br/><span class="ar">شروطٌ منصفة لكلّ طرف</span><span class="en">Fair terms for all sides</span></span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+        <span><span class="emph"><span class="ar">عربيّ وإنجليزيّ</span><span class="en">Arabic & English</span></span><br/><span class="ar">ثنائيّة اللغة بالكامل</span><span class="en">Fully bilingual experience</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><span class="ar">الأسئلة</span><span class="en">FAQ</span></span>
+      <h2><span class="ar">أجوبة مباشرة</span><span class="en">Straight Answers</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q"><span><span class="ar">كم سأدفع لأنضمّ؟</span><span class="en">How much does it cost to join?</span></span></div>
+        <div class="faq-a"><p><span class="ar">صفر. المؤسّسون يبدؤون بدون أيّ تكلفة، ولا يدفعون أيّ شيء حتى يكون عندهم مشتركين فعلاً. النموذج قائم على نسبةٍ شفّافة من كلّ عمليّة بيع، بدون اشتراك ولا رسوم تفعيل.</span><span class="en">Zero. Founders start at no cost and don't pay anything until they actually have subscribers. The model is a transparent per-sale commission, with no subscription and no activation fee.</span></p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span><span class="ar">عندي عملائي أصلاً، ليش أنقلهم؟</span><span class="en">I already have clients — why move them?</span></span></div>
+        <div class="faq-a"><p><span class="ar">لأنّك تدفع ضريبة خفيّة اليوم: ساعاتٌ ضائعة في التنسيق، برامج غير قابلة للبيع مرّتين، ومدفوعات يدويّة. تمرين يحوّل عملاءك الحاليّين إلى أصلٍ قابل للتوسّع، ويضيف عملاء جُدُداً من خلال صفحة الاكتشاف.</span><span class="en">Because you're paying a hidden tax today: hours lost to coordination, programs you can't resell, and manual payments. Tamreen turns your existing clients into a scalable asset and adds new ones through the discovery page.</span></p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span><span class="ar">ما متطلّبات قبول المدربين؟</span><span class="en">What are the coach admission requirements?</span></span></div>
+        <div class="faq-a"><p><span class="ar">إثبات الاعتماد المهنيّ (شهادة معتمَدة في التدريب أو التغذيه أو العلاج الطبيعي)، وسجلّ عمل أو نتائج حقيقيّة. المنصّة احترافيّة، ونحافظ على مستواها.</span><span class="en">Proof of professional certification (coaching, nutrition, or physiotherapy) plus a work track record or real outcomes. The platform is professional — we keep the bar high.</span></p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span><span class="ar">من يملك بياناتي وبرامجي؟</span><span class="en">Who owns my data and programs?</span></span></div>
+        <div class="faq-a"><p><span class="ar">أنت. ملفّك، عملاؤك، محتواك، ملكك حصريّاً. يمكنك تصدير بياناتك أو مغادرة المنصّة في أيّ وقت دون رسوم أو عوائق.</span><span class="en">You do. Your profile, clients, and content are exclusively yours. You can export your data or leave the platform at any time — no fees, no friction.</span></p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span><span class="ar">هل هناك التزام أو عقدٌ طويل؟</span><span class="en">Is there a long-term commitment?</span></span></div>
+        <div class="faq-a"><p><span class="ar">لا. لا عقود مُلزِمة ولا رسوم إلغاء. نبني علاقةً تستحقّ البقاء، لا علاقةً تفرضها العقوبات.</span><span class="en">No. No binding contracts, no cancellation fees. We build a relationship worth staying for — not one enforced by penalties.</span></p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span><span class="ar">متى الإطلاق الرسميّ؟</span><span class="en">When is the official launch?</span></span></div>
+        <div class="faq-a"><p><span class="ar">الربع الأوّل من عام 2026. المؤسّسون يحصلون على وصولٍ مُبكّر وتجهيزٍ كامل قبل الإطلاق، ويفتتحون المنصّة بحضورٍ جاهز.</span><span class="en">Q1 2026. Founders get early access and full onboarding before launch, and open the platform with their presence already live.</span></p></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q"><span><span class="ar">أنا رياضيّ، لا مدرب. هل هذا يعنيني؟</span><span class="en">I'm an athlete, not a coach — is this for me?</span></span></div>
+        <div class="faq-a"><p><span class="ar">نعم. سجّل على القائمة، وكن من أوّل من يدخل التطبيق عند الإطلاق. ستجد برامج من نُخبة المحترفين في الكويت، جاهزة من يومك الأوّل.</span><span class="en">Yes. Join the waitlist and be among the first inside the app at launch. You'll find programs from Kuwait's top professionals — ready on day one.</span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOMO ============ -->
+<section class="fomo-wrap">
+  <div class="container">
+    <div class="fomo-card reveal">
+      <span class="eyebrow" style="border-color:rgba(255,183,3,.4);color:var(--gold)"><span class="dot" style="background:var(--gold);box-shadow:0 0 10px var(--gold)"></span><span class="ar">تنبيه نهائيّ</span><span class="en">Final Warning</span></span>
+      <h2>
+        <span class="ar">إذا راح هذا العرض، <span class="acc">ما راح يرجع أبداً</span>.</span>
+        <span class="en">Once This Offer is Gone, <span class="acc">It's Gone for Good</span>.</span>
+      </h2>
+      <p class="xl" style="max-width:660px;margin:0 auto;color:var(--text-2)">
+        <span class="ar">شارة المؤسّسين تُمنح مرّةً واحدة في عمر المنصّة. من يلحقها اليوم يبقى مؤسّساً مدى الحياة. من يتأخّر يدخل كمستخدم عاديّ، بلا امتيازات، بلا شارة، وبلا أولويّة.</span>
+        <span class="en">The Founder Badge is given only once in the platform's lifetime. Those who claim it today stay Founders forever. Those who wait join as regular users — with no privileges, no badge, no priority.</span>
+      </p>
+      <span class="fomo-kw">
+        <span class="ar">من سبق، لبق.</span>
+        <span class="en">First come, first served.</span>
+      </span>
+
+      <div class="fomo-list">
+        <div class="fomo-item">
+          <div class="t"><span class="ar">ينتهي</span><span class="en">Gone</span></div>
+          <h4><span class="ar">الأولويّة في السوق</span><span class="en">First-Mover Advantage</span></h4>
+          <p><span class="ar">من يدخل اليوم يبني جمهوره قبل الجميع. اللي يتأخّر يلحق الصفّ.</span><span class="en">Those who start today build their audience before anyone else. Late joiners wait in line.</span></p>
+        </div>
+        <div class="fomo-item">
+          <div class="t"><span class="ar">ينتهي</span><span class="en">Gone</span></div>
+          <h4><span class="ar">أولويّة ورش العمل الخاصّة</span><span class="en">Priority for private workshops</span></h4>
+          <p><span class="ar">تتحوّل إلى رسوم دخول للعامّة. المؤسّسون معفيّون مدى الحياة.</span><span class="en">Becomes paid entry for everyone else. Founders stay exempt for life.</span></p>
+        </div>
+        <div class="fomo-item">
+          <div class="t"><span class="ar">ينتهي</span><span class="en">Gone</span></div>
+          <h4><span class="ar">شارة المؤسّسين على صفحتك</span><span class="en">The Founder Badge on your page</span></h4>
+          <p><span class="ar">دليلٌ دائم بأنّك من الأوائل الذين صنعوا المنصّة.</span><span class="en">A permanent proof you were among the first who built this.</span></p>
+        </div>
+      </div>
+
+      <div style="margin-top:40px">
+        <a href="https://register.mytamreen.com" class="btn btn-gold btn-lg">
+          <span class="ar">احجز شارة المؤسّس قبل الإغلاق</span><span class="en">Claim Your Founder Badge Before It Closes</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <div style="margin-top:12px;color:var(--text-3);font-size:.86rem;font-weight:600">
+          <span class="ar">بدون مخاطرة · بدون دفع حتى يصير عندك مشتركين · تجربة مجّانيّة كاملة</span>
+          <span class="en">Zero risk · No payment until you have subscribers · Full free trial</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta">
+  <div class="container reveal">
+    <h2>
+      <span class="ar">الفرصة لا تبقى مفتوحة.<br/>كن <span class="acc">مؤسّساً</span>، لا تابعاً.</span>
+      <span class="en">The Door Won't Stay Open.<br/>Be a <span class="acc">Founder</span>, Not a Follower.</span>
+    </h2>
+    <p>
+      <span class="ar">شارة المؤسّسين تُمنح مرّةً واحدة، لعددٍ محدود فقط. إذا راح هذا العرض، ما راح يرجع أبداً.</span>
+      <span class="en">The Founder Badge is given once, to a limited group only. Once this offer is gone, it's gone for good.</span>
+    </p>
+    <div class="final-ctas">
+      <a href="https://register.mytamreen.com" class="btn btn-gold btn-lg">
+        <span class="ar">سجّل كمؤسّس الآن</span><span class="en">Register as Founder Now</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://athlete.mytamreen.com" class="btn btn-white btn-lg">
+        <span class="ar">انضم كرياضيّ</span><span class="en">Join as an Athlete</span>
+      </a>
+      <a href="https://management.mytamreen.com" class="btn btn-ghost btn-lg" target="_blank" rel="noopener">
+        <span class="ar">احجز اجتماعاً مع الإدارة</span><span class="en">Book a Meeting with Management</span>
+      </a>
+    </div>
+    <div class="final-meta">
+      <span class="ar">60 ثانية للتسجيل · بدون مخاطرة · صفر التزام</span>
+      <span class="en">60 seconds · zero risk · zero commitment</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<!-- ============ STICKY MOBILE CTA ============ -->
+<div class="sticky-cta" aria-label="Quick register">
+  <div class="label">
+    <span class="ar">سجّل كمؤسّس</span><span class="en">Register as Founder</span>
+    <small><span class="ar">بدون مخاطرة · بدون دفع</span><span class="en">Zero risk · No payment</span></small>
+  </div>
+  <a href="https://register.mytamreen.com">
+    <span class="ar">ابدأ</span><span class="en">Start</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  </a>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="Tamreen" />
+        <p style="font-weight:700;color:var(--text);margin-bottom:10px"><span class="ar">تمرين، الشريك الرياضي.</span><span class="en">Tamreen, Your Fitness Partner.</span></p>
+        <p><span class="ar">المنصّة الأولى للرياضيّين في الكويت والخليج. النظام الذي يُدير أعمال المدربين واخصائيين التغذيه واخصائيين العلاج الطبيعي.</span><span class="en">The #1 athletes' platform in Kuwait and the Gulf. The system that runs the businesses of coaches, nutritionists, and physiotherapists.</span></p>
+      </div>
+      <div class="foot-col">
+        <h5><span class="ar">النظام</span><span class="en">System</span></h5>
+        <a href="#system"><span class="ar">كيف يعمل</span><span class="en">How it works</span></a>
+        <a href="#providers"><span class="ar">للمدربين</span><span class="en">For coaches</span></a>
+        <a href="#athletes"><span class="ar">للرياضيّين</span><span class="en">For athletes</span></a>
+        <a href="#model"><span class="ar">النموذج المالي</span><span class="en">Pricing model</span></a>
+      </div>
+      <div class="foot-col">
+        <h5><span class="ar">الشركة</span><span class="en">Company</span></h5>
+        <a href="#faq"><span class="ar">الأسئلة</span><span class="en">FAQ</span></a>
+        <a href="mailto:Support@mytamreen.com"><span class="ar">تواصل</span><span class="en">Contact</span></a>
+        <a href="https://management.mytamreen.com" target="_blank" rel="noopener"><span class="ar">احجز اجتماع</span><span class="en">Book a meeting</span></a>
+        <a href="#"><span class="ar">الخصوصيّة</span><span class="en">Privacy</span></a>
+        <a href="#"><span class="ar">الشروط</span><span class="en">Terms</span></a>
+      </div>
+      <div class="foot-col">
+        <h5><span class="ar">ابدأ</span><span class="en">Start</span></h5>
+        <a href="#offer"><span class="ar">احجز مقعدك</span><span class="en">Claim a seat</span></a>
+        <a href="#athletes"><span class="ar">قائمة الانتظار</span><span class="en">Athlete waitlist</span></a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span><span class="ar">© 2026 تمرين. جميع الحقوق محفوظة.</span><span class="en">© 2026 Tamreen. All rights reserved.</span></span>
+      <span>
+        <a href="mailto:Support@mytamreen.com" style="color:var(--text-2);text-decoration:none">Support@mytamreen.com</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:TamreenManagement@MyTamreen.com" style="color:var(--text-2);text-decoration:none">TamreenManagement@MyTamreen.com</a>
+      </span>
+      <span><span class="ar">صُنع في الكويت 🇰🇼</span><span class="en">Made in Kuwait 🇰🇼</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var html=document.documentElement;
+  var STORAGE='tamreen-lang';
+  var titles={
+    ar:'تمرين، الشريك الرياضي. المنصّة الأولى للرياضيّين في الكويت والخليج',
+    en:"Tamreen — The System That Runs Coaches' Businesses in Kuwait"
+  };
+
+  function setLang(l){
+    if(l!=='ar'&&l!=='en')l='ar';
+    html.setAttribute('lang',l);
+    html.setAttribute('dir',l==='ar'?'rtl':'ltr');
+    html.setAttribute('data-lang',l);
+    document.title=titles[l];
+    try{localStorage.setItem(STORAGE,l)}catch(e){}
+    document.querySelectorAll('[data-lang-btn]').forEach(function(b){
+      b.classList.toggle('active',b.getAttribute('data-lang-btn')===l);
+    });
+  }
+
+  try{var saved=localStorage.getItem(STORAGE);if(saved)setLang(saved);}catch(e){}
+
+  document.querySelectorAll('[data-lang-btn]').forEach(function(b){
+    b.addEventListener('click',function(){setLang(b.getAttribute('data-lang-btn'))});
+  });
+
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click',function(){
+      item.classList.toggle('open');
+    });
+  });
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+      });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  }else{
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+  }
+})();
+</script>
+</body>
+</html>
