@@ -553,7 +553,12 @@ footer{border-top:1px solid var(--border);padding:70px 0 30px;background:var(--b
 .foot-col h5{font-size:.75rem;text-transform:uppercase;letter-spacing:.14em;color:var(--text-4);margin-bottom:18px;font-weight:800}
 .foot-col a{display:block;color:var(--text-2);text-decoration:none;font-size:.94rem;padding:6px 0;transition:color .2s}
 .foot-col a:hover{color:var(--text)}
-.foot-bot{padding-top:28px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--text-4);font-size:.85rem}
+.foot-legal{padding:24px 0;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(2,1fr);gap:10px 30px;color:var(--text-3);font-size:.82rem;line-height:1.55}
+.foot-legal-row{display:flex;gap:10px;align-items:flex-start;min-width:0}
+.foot-legal-k{flex:0 0 130px;color:var(--text-4);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.72rem;padding-top:2px}
+.foot-legal-v{flex:1;min-width:0;color:var(--text-2);word-wrap:break-word}
+@media(max-width:700px){.foot-legal{grid-template-columns:1fr;gap:8px}.foot-legal-row{flex-direction:column;gap:2px}.foot-legal-k{flex:none;padding-top:0}}
+.foot-bot{padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--text-4);font-size:.85rem}
 
 /* ---------- BADGE SHOWCASE ---------- */
 .badge-showcase{
@@ -1775,6 +1780,28 @@ footer{border-top:1px solid var(--border);padding:70px 0 30px;background:var(--b
         <h5><span class="ar">ابدأ</span><span class="en">Start</span></h5>
         <a href="#offer"><span class="ar">احجز مقعدك</span><span class="en">Claim a seat</span></a>
         <a href="#athletes"><span class="ar">قائمة الانتظار</span><span class="en">Athlete waitlist</span></a>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <div class="foot-legal-row">
+        <span class="foot-legal-k"><span class="ar">الاسم القانوني</span><span class="en">Legal name</span></span>
+        <span class="foot-legal-v"><span class="ar">شركة تمرين للاستشارات الرياضية</span><span class="en">Tamreen Sports Consulting Co.</span></span>
+      </div>
+      <div class="foot-legal-row">
+        <span class="foot-legal-k"><span class="ar">السجل التجاري</span><span class="en">Commercial registration</span></span>
+        <span class="foot-legal-v" dir="ltr">531660</span>
+      </div>
+      <div class="foot-legal-row">
+        <span class="foot-legal-k"><span class="ar">رقم الترخيص</span><span class="en">License no.</span></span>
+        <span class="foot-legal-v" dir="ltr">2026/4823</span>
+      </div>
+      <div class="foot-legal-row">
+        <span class="foot-legal-k"><span class="ar">العنوان</span><span class="en">Address</span></span>
+        <span class="foot-legal-v"><span class="ar">وحدة 11، مبنى ريم مرزوق محمد الغانم، شارع عبد العزيز حمد الصقر، المرقاب، محافظة العاصمة، دولة الكويت</span><span class="en">Unit 11, Reem Marzouq Mohammed Al-Ghanem Bldg., Abdulaziz Hamad Al-Saqr St., Al-Mirqab, Capital Governorate, State of Kuwait</span></span>
+      </div>
+      <div class="foot-legal-row">
+        <span class="foot-legal-k"><span class="ar">إنستغرام</span><span class="en">Instagram</span></span>
+        <span class="foot-legal-v"><a href="https://www.instagram.com/mytamreen" target="_blank" rel="noopener" dir="ltr" style="color:var(--text-2);text-decoration:none">@mytamreen</a></span>
       </div>
     </div>
     <div class="foot-bot">
