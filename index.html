@@ -938,6 +938,23 @@ footer{border-top:1px solid var(--border);padding:70px 0 30px;background:var(--b
   .nav,.sticky-cta,.bg-atmos,.hero-video,.nav-drawer{display:none !important}
   body{background:#fff;color:#000;padding-bottom:0}
 }
+
+/* ===== BRAND EQUATION STRAP (warning tape, blue) ===== */
+.eq-strap{position:relative; overflow:hidden; z-index:5; direction:ltr; background:linear-gradient(180deg,#050510 0%,#0A1E50 50%,#050510 100%); border-top:1px solid rgba(10,132,255,.14); border-bottom:1px solid rgba(10,132,255,.14)}
+.eq-stripes{height:14px; width:100%; background:repeating-linear-gradient(-135deg,#0A84FF 0 14px,#0a0a18 14px 28px)}
+.eq-track-wrap{padding:22px 0; overflow:hidden}
+.eq-track{display:flex; gap:96px; align-items:center; white-space:nowrap; width:max-content; animation:eqScroll 36s linear infinite; will-change:transform}
+.eq-track:hover{animation-play-state:paused}
+@keyframes eqScroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+.eq-unit{display:inline-flex; align-items:center; gap:clamp(16px,1.6vw,26px); font-family:'Inter',system-ui,sans-serif; flex-shrink:0}
+.eq-word{font-size:clamp(1.4rem,2.6vw,2.4rem); font-weight:900; color:#fff; letter-spacing:.01em; line-height:1; text-transform:uppercase}
+.eq-mark{height:clamp(30px,3.2vw,44px); width:auto; filter:drop-shadow(0 0 14px rgba(10,132,255,.7)); animation:eqMark 2.6s ease-in-out infinite; flex-shrink:0}
+.eq-mark:nth-of-type(2){animation-delay:.5s}
+@keyframes eqMark{0%,100%{transform:translateY(0); filter:drop-shadow(0 0 10px rgba(10,132,255,.55))} 50%{transform:translateY(-3px); filter:drop-shadow(0 0 22px rgba(10,132,255,1))}}
+.eq-eq{font-size:clamp(1.6rem,2.8vw,2.6rem); font-weight:900; color:#0A84FF; margin:0 8px; line-height:1; opacity:.9}
+.eq-accent{background:linear-gradient(120deg,#3FA1FF 0%,#0A84FF 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+.eq-sep{display:inline-block; width:6px; height:36px; border-radius:3px; background:#0A84FF; box-shadow:0 0 18px rgba(10,132,255,.7); flex-shrink:0; opacity:.85}
+@media (prefers-reduced-motion:reduce){.eq-track{animation:none} .eq-mark{animation:none}}
 </style>
 </head>
 <body>
@@ -1224,6 +1241,20 @@ footer{border-top:1px solid var(--border);padding:70px 0 30px;background:var(--b
     </div>
   </div>
 </section>
+
+<!-- ============ EQUATION STRAP (warning tape) ============ -->
+<div class="eq-strap" aria-hidden="true">
+  <div class="eq-stripes"></div>
+  <div class="eq-track-wrap"><div class="eq-track">
+    <span class="eq-unit"><span class="eq-word">COACH</span><img class="eq-mark" src="assets/symbol.png" alt=""/><span class="eq-word">NUTRITION</span><img class="eq-mark" src="assets/symbol.png" alt=""/><span class="eq-word">PHYSIO</span><span class="eq-eq">=</span><span class="eq-word eq-accent">ONE&nbsp;PLATFORM</span></span><span class="eq-sep"></span>
+    <span class="eq-unit"><span class="eq-word">COACH</span><img class="eq-mark" src="assets/symbol.png" alt=""/><span class="eq-word">NUTRITION</span><img class="eq-mark" src="assets/symbol.png" alt=""/><span class="eq-word">PHYSIO</span><span class="eq-eq">=</span><span class="eq-word eq-accent">ONE&nbsp;PLATFORM</span></span><span class="eq-sep"></span>
+    <span class="eq-unit"><span class="eq-word">COACH</span><img class="eq-mark" src="assets/symbol.png" alt=""/><span class="eq-word">NUTRITION</span><img class="eq-mark" src="assets/symbol.png" alt=""/><span class="eq-word">PHYSIO</span><span class="eq-eq">=</span><span class="eq-word eq-accent">ONE&nbsp;PLATFORM</span></span><span class="eq-sep"></span>
+    <span class="eq-unit"><span class="eq-word">COACH</span><img class="eq-mark" src="assets/symbol.png" alt=""/><span class="eq-word">NUTRITION</span><img class="eq-mark" src="assets/symbol.png" alt=""/><span class="eq-word">PHYSIO</span><span class="eq-eq">=</span><span class="eq-word eq-accent">ONE&nbsp;PLATFORM</span></span><span class="eq-sep"></span>
+    <span class="eq-unit"><span class="eq-word">COACH</span><img class="eq-mark" src="assets/symbol.png" alt=""/><span class="eq-word">NUTRITION</span><img class="eq-mark" src="assets/symbol.png" alt=""/><span class="eq-word">PHYSIO</span><span class="eq-eq">=</span><span class="eq-word eq-accent">ONE&nbsp;PLATFORM</span></span><span class="eq-sep"></span>
+    <span class="eq-unit"><span class="eq-word">COACH</span><img class="eq-mark" src="assets/symbol.png" alt=""/><span class="eq-word">NUTRITION</span><img class="eq-mark" src="assets/symbol.png" alt=""/><span class="eq-word">PHYSIO</span><span class="eq-eq">=</span><span class="eq-word eq-accent">ONE&nbsp;PLATFORM</span></span><span class="eq-sep"></span>
+  </div></div>
+  <div class="eq-stripes"></div>
+</div>
 
 <!-- ============ FOR PROVIDERS (3 EQUAL) ============ -->
 <section id="providers" class="wide">
