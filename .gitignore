@@ -1,0 +1,5 @@
+
+# secrets / local env (defensive)
+.env
+.env.*
+.vercel
